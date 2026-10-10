@@ -5,12 +5,14 @@ from inizializzo_strumenti import Strumento
 from csv import reader
 
 class DepositoStrumenti:
+
     def __init__(self, nome, responsabile):
         """Inizializza gli attributi e le strutture dati"""
         self.__nome = nome
         self.__responsabile = responsabile
         self.__strumenti = []
         self.__prestiti = []
+
     @property
     def nome(self):
         return self.__nome

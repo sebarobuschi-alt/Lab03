@@ -1,6 +1,5 @@
 
 from datetime import datetime
-
 from deposito_strumenti import DepositoStrumenti
 
 
