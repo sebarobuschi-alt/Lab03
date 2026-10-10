@@ -111,4 +111,4 @@ class DepositoStrumenti:
                 break
 
         if not prestito_trovato:
-            raise Exception('Il codice del prestito inserito non esiste!')
+            raise Exception('Il codice del prestito inserito non esiste')

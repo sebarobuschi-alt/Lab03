@@ -4,6 +4,7 @@ class Prestito:
         self.__data = data
         self.__id_strumento = id_strumento
         self.__cognome_allievo = cognome_allievo
+
     @property
     def id_prestito(self):
         return self.__id_prestito

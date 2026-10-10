@@ -7,8 +7,6 @@ class Strumento:
         self.__anno_acquisto = int(anno_acquisto)
         self.__valore = float(valore)
 
-
-
     @property
     def id_strumento(self):
         return self.__id_strumento
