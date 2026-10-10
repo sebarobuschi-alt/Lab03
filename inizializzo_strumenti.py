@@ -47,4 +47,4 @@ class Strumento:
 
     def __str__(self):
         """Restituisce una stringa formattata quando si stampa l'oggetto Strumento"""
-        return f"[{self.__id_strumento}] {self.__tipo} - Marca: {self.__marca} (Anno: {self.__anno_acquisto}, Valore: {self.__valore:.2f} €)"
+        return f"[{self.__id_strumento}] - {self.__tipo} - Marca: {self.__marca} - Anno: {self.__anno_acquisto} - Valore: {self.__valore:.2f} €"

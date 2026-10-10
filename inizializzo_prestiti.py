@@ -17,4 +17,4 @@ class Prestito:
     def cognome_allievo(self):
         return self.__cognome_allievo
     def __str__(self):
-        return f"Prestito {self.__id_prestito} del {self.__data}: Strumento {self.__id_strumento} affidato a {self.__cognome_allievo}"
+        return f"[{self.__id_prestito}]- Data: {self.__data} - Strumento: {self.__id_strumento} - Allievo: {self.__cognome_allievo}"

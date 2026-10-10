@@ -31,7 +31,7 @@ class DepositoStrumenti:
         self.__responsabile = nuovo_responsabile
         return self
     def __str__(self):
-        return f"Deposito: {self.__nome} (Responsabile: {self.__responsabile})"
+        return f"Deposito: {self.__nome} - Responsabile: {self.__responsabile}"
 
 
 
@@ -75,32 +75,40 @@ class DepositoStrumenti:
 
     def nuovo_prestito(self, data, id_strumento, cognome_allievo):
         """Crea un nuovo prestito"""
+        strumento_esiste = False
         for s in self.__strumenti:
-            if s.id_strumento ==  id_strumento:
-                struemnto_esiste = True
+            if s.id_strumento == id_strumento:
+                strumento_esiste = True
                 break
-        if not_strumento_esiste:
-                raise Exception('strumento inserito inesistente!')
 
-        if len(self.__prestito) == 0:
-            id_prestito = 'P1'
-        else:
-            for p in self.__prestiti:
+        if not strumento_esiste:
+                raise Exception('Strumento inesistente nel deposito')
+
+
+        for p in self.__prestiti:
                 if p.id_strumento == id_strumento:
-                    raise Exception('strumento già in prestito!')
-                else:
-                    break
+                    raise Exception('Strumento già in prestito')
 
-            ultimo_id_p = len(self.__prestiti) + 1
-            id_prestito = 'P' + str(ultmio_id_p + 1)
+
+        if len(self.__prestiti) == 0:
+            id_prestito = 'P1'
+
+        else:
+            id_prestito = 'P' + str(len(self.__prestiti) + 1)
+
         nuovo_prestito = Prestito(id_prestito,data,id_strumento,cognome_allievo)
         self.__prestiti.append(nuovo_prestito)
         return nuovo_prestito
 
     def termina_prestito(self, id_prestito):
         """Termina un prestito in atto"""
+        prestito_trovato = False
         for p in self.__prestiti:
             if id_prestito == p.id_prestito:
                 self.__prestiti.remove(p)
-            else:
-                raise Exception('Il codice del prestito inserito non esiste!')
+                prestito_trovato = True
+
+                break
+
+        if not prestito_trovato:
+            raise Exception('Il codice del prestito inserito non esiste!')
